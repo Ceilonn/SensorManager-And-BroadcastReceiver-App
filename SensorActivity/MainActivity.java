@@ -39,12 +39,14 @@ public class MainActivity extends AppCompatActivity {
             if(proximity < mProximity.getMaximumRange() && accelerationCurrent-accelerationPrevious!=0){
                 // The mobile phone is moving and it is in the pocket
                 intent.putExtra("Status", 0);
+                sendBroadcast(intent);
                 //parlaklik.setText("Telefon cepte ve hareketli");
                 Toast.makeText(getApplicationContext(),"Telefon cepte ve hareketli",Toast.LENGTH_SHORT).show();
             }
             else if(accelerationCurrent-accelerationPrevious == 0){
                 // The mobile phone is not moving and it is on the deck
                 intent.putExtra("Status", 1);
+                sendBroadcast(intent);
                 //hareket.setText("Telefon masada ve hareketsiz");
                 Toast.makeText(getApplicationContext(),"Telefon masada ve hareketsiz",Toast.LENGTH_SHORT).show();
             }
